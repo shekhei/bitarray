@@ -5,7 +5,7 @@ Just a little fun i am having, building a bitarray for javascript
 
 Description
 -----------
-Basically this is a bitarray, which stores as 32bit integers internally.
+Basically this is a bitarray, which is stored as a bunch of 32bit integers internally.
 
 It should be easy to serialize, deserialize, and also easy to store in any json object, since, it would be nothing more than a bunch of numbers :D.
 
