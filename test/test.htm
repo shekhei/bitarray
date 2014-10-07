@@ -1,0 +1,31 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Mocha Tests</title>
+  <link rel="stylesheet" href="../node_modules/mocha/mocha.css" />
+</head>
+<body>
+  <div id="mocha"></div>
+  <script src="../bower_components/rjs/dist/r.js"></script>
+  <script src="../node_modules/mocha/mocha.js"></script>
+  <script>
+    require.config({
+    nodeIdCompat: false,
+
+    paths: {
+        "expect.js": "../node_modules/expect.js/index",
+        "../build/js/bitarray": "../build/js/bitarray"
+    },
+    urlArgs: "bust=" +  (new Date()).getTime(),
+    waitSeconds: 15
+  });
+  mocha.setup('bdd');
+  require(['expect.js', '../build/js/bitarray'], function(expect, bitarray){
+    require(['test-creation', 'test-getset', 'test-logicalops'], function(){
+      mocha.checkLeaks();
+      mocha.run();
+    });
+  })
+  </script>
+</body>
+</html>
