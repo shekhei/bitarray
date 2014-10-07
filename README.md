@@ -17,6 +17,21 @@ var arr = [1,1,1,0,0,0,1,1,1,0,0,0,1,1,1,0,0,0,1,1,1,0,0,0,1,1,1,0,0,0,1,1,1,0,0
 var bitArr1 = new BitArray(arr);
 // or you can create it with a string of 1s and 0s
 var bitArr2 = new BitArray(arr.join(''));
+
+// getting it in a string format
+bitArr.toString() == arr.join('');
+bitArr.asArr() == arr;
+
+// now, this gets to the more interesting parts
+for ( var i = 0; i < 10; i++ ) { arr.push(0);}
+arr.push(1);
+bitArr.set(arr.length-1,1).asArr() == arr;
+
+//retriving individual bits are simple too
+bitArr.get(0) === true;
+
+//and the length should be the same
+bitArr.length() === arr.length;
 ```
 
 Testing
