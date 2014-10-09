@@ -21,7 +21,7 @@
   });
   mocha.setup('bdd');
   require(['expect.js', '../build/js/bitarray'], function(expect, bitarray){
-    require(['test-creation', 'test-getset', 'test-logicalops'], function(){
+    require(['test-creation', 'test-getset', 'test-logical-ops', 'test-array-ops'], function(){
       mocha.checkLeaks();
       mocha.run();
     });

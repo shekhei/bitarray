@@ -31,7 +31,7 @@ bitArr.set(arr.length-1,1).asArr() == arr;
 bitArr.get(0) === true;
 
 //and the length should be the same
-bitArr.length() === arr.length;
+bitArr.length === arr.length;
 ```
 
 Testing

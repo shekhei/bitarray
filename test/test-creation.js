@@ -24,8 +24,8 @@ describe('Creating', function(){
 				for ( i = 0; i < fixtures.length; i++ ) {
 					// debugger;
 					var ba = new BitArray(fixtures[i]);
-					expect(ba.length()).to.be.eql(fixtures[i].length);
-					// debugger;
+					expect(ba.length).to.be.eql(fixtures[i].length);
+
 					var baArr = ba.asArr();
 					expect(baArr).to.be.an('array');
 					expect(baArr.length).to.be.eql(bitArrayFixtures[i].length);
@@ -39,7 +39,7 @@ describe('Creating', function(){
 				for ( i = 0; i < fixtures.length; i++ ) {
 					// debugger;
 					var ba = new BitArray(fixtures[i]);
-					expect(ba.length()).to.be.eql(fixtures[i].length);
+					expect(ba.length).to.be.eql(fixtures[i].length);
 					// debugger;
 					var baArr = ba.toString();
 					expect(baArr).to.be.an('string');
@@ -62,6 +62,19 @@ describe('Creating', function(){
 			expect(function(){new BitArray('e23');}).to.throwException();
 			expect(function(){new BitArray('10a');}).to.throwException();
 			expect(function(){new BitArray('de$');}).to.throwException();
+			done();
+		});
+	});
+	describe('copy constructor', function(){
+		it('should create correctly', function(done){
+			for ( var i = 0; i < bitArrayFixtures.length; i++ ) {
+				var ba = new BitArray(bitArrayFixtures[i]);
+				expect(ba.length).to.be(bitArrayFixtures[i].length);
+				var nba = new BitArray(ba);
+				expect(nba.length).to.be(ba.length);
+				expect(ba.toString()).to.be(nba.toString());
+			}
+			
 			done();
 		});
 	});
